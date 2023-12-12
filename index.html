@@ -9,6 +9,23 @@
     <script src="script.js"></script>
 </head>
 <body>
-    
+    <input type="number" id="numberN" />
+    <button onclick="printDivisibleNumbers()">zkontroluj</button>
+ 
+    <ul id="outputList"></ul>
+    <script>
+        function printDivisibleNumbers() {
+            var userNumber = document.getElementById("numberN").value;
+            var outputList = document.getElementById("outputList");
+            outputList.innerHTML = "";
+            var divisor = userNumber % 2 === 0 ? 2 : 3;
+ 
+            for (var i = divisor; i <= userNumber; i += divisor) {
+                var listItem = document.createElement("li");
+                listItem.appendChild(document.createTextNode(i));
+                outputList.appendChild(listItem);
+            }
+        }
+    </script>
 </body>
 </html>
